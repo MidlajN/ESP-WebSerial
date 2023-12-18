@@ -11,12 +11,23 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
-  digitalWrite(LED, HIGH);
-  delay(1000);
-  digitalWrite(LED, LOW);
-  delay(1000);
+  if (Serial.available() > 0) {
+    char character = Serial.read();
+    if (character == '1')
+    {
+      digitalWrite(LED, HIGH);
+    } else {
+      digitalWrite(LED, LOW);
+    }
+    
+  }
   Serial.println("Hello, World!");
   delay(1000);
+  // delay(1000);
+  // digitalWrite(LED, LOW);
+  // delay(1000);
+  
+  // delay(1000);
 }
 
 // put function definitions here:
